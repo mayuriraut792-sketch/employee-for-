@@ -1,0 +1,141 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employee Management</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #f2f2f2;
+            padding: 30px;
+        }
+
+        .container {
+            width: 600px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        .form-box {
+            border: 1px solid #aaa;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        input {
+            width: 95%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border: 1px solid #999;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        th, td {
+            border: 1px solid #999;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background: #007bff;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>Employee Form</h2>
+
+    <div class="form-box">
+        <form id="employeeForm">
+
+            ID:
+            <input type="number" id="empId" required>
+
+            Name:
+            <input type="text" id="name" required>
+
+            Role:
+            <input type="text" id="role" required>
+
+            Salary:
+            <input type="number" id="salary" required>
+
+            <button type="submit">Add Employee</button>
+
+        </form>
+    </div>
+
+    <h2>Employee Details</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Role</th>
+                <th>Salary</th>
+            </tr>
+        </thead>
+
+        <tbody id="employeeTable"></tbody>
+    </table>
+
+</div>
+
+<script>
+document.getElementById("employeeForm")
+.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    let id = document.getElementById("empId").value;
+    let name = document.getElementById("name").value;
+    let role = document.getElementById("role").value;
+    let salary = document.getElementById("salary").value;
+
+    let table = document.getElementById("employeeTable");
+    let row = table.insertRow();
+
+    row.insertCell(0).textContent = id;
+    row.insertCell(1).textContent = name;
+    row.insertCell(2).textContent = role;
+    row.insertCell(3).textContent = salary;
+
+    document.getElementById("employeeForm").reset();
+});
+</script>
+
+</body>
+</html>
+```
+
